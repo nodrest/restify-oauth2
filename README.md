@@ -4,21 +4,16 @@
 
 ## 你会得到什么
 
-If you provide Restify–OAuth2 with the appropriate hooks, it will:
+如果你提供Restify–OAuth2,并使用合适的钩子, 它将:
 
-* Set up a [token endpoint][], which returns [access token responses][token-endpoint-success] or
-  [correctly-formatted error responses][token-endpoint-error].
-* For all other resources, when an access token is [sent via the `Authorization` header][send-token], it will validate
-  it:
-  * If the token fails validation, it will send [an appropriate 400 or 401 error response][token-usage-error], with a
-    [`WWW-Authenticate`][www-authenticate] header and a [`Link`][web-linking] [`rel="oauth2-token"`][oauth2-token-rel]
-    header pointing to the token endpoint.
-  * Otherwise, it will set either `req.clientId` or `req.username` (depending on which flow you are using) to a value
-    determined by looking up the access token.
-* If no access token is sent, it simply sets `req.clientId`/`req.username` to `null`:
-  * You can check for this whenever there is a resource you want to protect.
-  * If the user tries to access a protected resource, you can use Restify–OAuth2's `res.sendUnauthorized()` to send
-    appropriate 401 errors with helpful `WWW-Authenticate` and `Link` headers.
+* 设置一个[令牌这终端][token endpoint], 将返回[访问令牌响应][token-endpoint-success]或者[正确格式错误回应][token-endpoint-error].
+* 对于所有其他资源, 当一个访问令牌是[通过`Authorization`头发送][send-token], 它会验证它:
+  * 如果令牌验证失败, 它将发送[恰当的400或401错误响应][token-usage-error], 并带有[`WWW-Authenticate`][www-authenticate]头和[`Link`][web-linking] [`rel="oauth2-token"`][oauth2-token-rel]
+    头指向令牌终端.
+  * 否则, 它将设置要么`req.clientId`要么`req.username` (依赖下面你是哟你的)为通过查找访问令牌确定的值.
+* 如果没有访问令牌发送, 简单设置`req.clientId`/`req.username`为`null`:
+  * 您可以检查这个只要有你想要保护的资源。
+  * 如果用户试图访问受保护的资源，你可以使用Restify–OAuth2的`res.sendUnauthorized()`来发送合适401错误通过有帮助的 `WWW-Authenticate`和`Link`头.
 
 ## 使用和配置
 
