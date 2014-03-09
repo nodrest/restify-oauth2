@@ -1,4 +1,4 @@
-# OAuth 2 Endpoints for Restify
+# Restify的OAuth 2终端
 
 本报为[Restify][]框架提供一个*非常简单*的OAuth 2.0 终端. 特别是, 它只实现了[客户端凭证][cc]和[资源所有者密码认证][ropc] 流量.
 
@@ -10,7 +10,7 @@
 * 对于所有其他资源, 当一个访问令牌是[通过`Authorization`头发送][send-token], 它会验证它:
   * 如果令牌验证失败, 它将发送[恰当的400或401错误响应][token-usage-error], 并带有[`WWW-Authenticate`][www-authenticate]头和[`Link`][web-linking] [`rel="oauth2-token"`][oauth2-token-rel]
     头指向令牌终端.
-  * 否则, 它将设置要么`req.clientId`要么`req.username` (依赖下面你是哟你的)为通过查找访问令牌确定的值.
+  * 否则, 它将设置要么`req.clientId`要么`req.username` (依赖下面你所用的)为通过查找访问令牌确定的值.
 * 如果没有访问令牌发送, 简单设置`req.clientId`/`req.username`为`null`:
   * 您可以检查这个只要有你想要保护的资源。
   * 如果用户试图访问受保护的资源，你可以使用Restify–OAuth2的`res.sendUnauthorized()`来发送合适401错误通过有帮助的 `WWW-Authenticate`和`Link`头.
