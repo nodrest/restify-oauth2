@@ -148,6 +148,6 @@ OAuth 2 conformance, error handling, etc. is present in the application code: Re
 [oauth2-token-rel]: http://tools.ietf.org/html/draft-wmills-oauth-lrdd-07#section-3.2
 [web-linking]: http://tools.ietf.org/html/rfc5988
 [www-authenticate]: http://tools.ietf.org/html/rfc2617#section-3.2.1
-[example ROPC hooks]: https://github.com/domenic/restify-oauth2/blob/master/examples/ropc/hooks.js
-[example CC hooks]: https://github.com/domenic/restify-oauth2/blob/master/examples/cc/hooks.js
-[example servers]: https://github.com/domenic/restify-oauth2/tree/master/examples
+[example ROPC hooks]: https://github.com/nodrest/restify-oauth2/blob/master/examples/ropc/hooks.js
+[example CC hooks]: https://github.com/nodrest/restify-oauth2/blob/master/examples/cc/hooks.js
+[example servers]: https://github.com/nodrest/restify-oauth2/tree/master/examples
