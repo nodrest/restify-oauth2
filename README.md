@@ -38,27 +38,19 @@ restifyOAuth2.ropc(server, options);
 
 传递给Restify–OAuth2的参数严重依赖你选择的两个流中的一个。一些选项在所有流中通用, 但是`options.hooks`哈希将取决于流变化. 一旦您提供相应的钩子, 你会免费得到一个OAuth 2实现.
 
-### 客户端认证挂钩
+### 客户端认证钩子
 
-The idea behind this very simple OAuth 2 flow is that your API clients identify themselves with client IDs and secrets,
-and if those values authenticate, you grant them an access token they can use for further requests. The advantage of
-this over simply requiring basic access authentication headers on every request is that now you can set those tokens to
-expire, or revoke them if they fall in to the wrong hands.
+非常简单的OAuth 2流下面的想法是你的API客户端通过客户端IDs和客户段谜钥认证自身，并且如果这些值认证了，你赋予他们一个访问令牌,将来在请求中可以使用。比在每次请求时简单的基于访问认证头请求的好处是现在你可一设置这些令牌过期或者在它们落在了坏人的手中撤销他们如果。
 
-To install Restify–OAuth2's client credentials flow into your infrastructure, you will need to provide it with the
-following hooks in the `options.hooks` hash. You can see some [CC钩子实例][example CC hooks] in the demo application.
+安装Restify–OAuth2的客户端证书流到你的架构, 你需要提供它带以下钩子在`options.hooks`哈希里. 你可以在演示演示应用程序里查看一些[CC钩子实例][example CC hooks].
 
 #### `grantClientToken(clientId, clientSecret, cb)`
 
-Checks that the API client is authorized to use your API, and has the correct secret. It should call back with a new
-token for that client if so, or `false` if the credentials are incorrect. It can also call back with an error if there
-was some internal server error while validating the credentials.
+检测API客户端是否认证可用，并有正确的密钥。如果这样它应该为那个客户端回调一个新的令牌，或者回调'false'如果证书是错误的。如果当验证凭据的时候发生内部服务错误它也可以回调一个错误。
 
 #### `authenticateToken(token, cb)`
 
-Checks that a token is valid, i.e. that it was granted in the past by `grantClientToken`. It should call back with the
-client ID for that token if so, or `false` if the token is invalid. It can also call back with an error if there
-was some internal server error while looking up the token.
+检测令牌是否有效，通过上一步`grantClientToken`赋予的。如果那样它应该为那个令牌回调带客户ID，或者'false'如果令牌失效。当查看令牌的时候如果发生服务器内部错误它也可以回调错误。
 
 ### 资源所有者密码认证挂钩
 
