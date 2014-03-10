@@ -17,9 +17,7 @@
 
 ## 使用和配置
 
-To use Restify–OAuth2, you'll need to pass it your server plus some options, including the hooks discussed below.
-Restify–OAuth2 also depends on the built-in `authorizationParser` and `bodyParser` plugins, the latter with `mapParams`
-set to `false`. So in short, it looks like this:
+使用Restify–OAuth2, 你需要传递给你的服务插件一些选项, 包括下面提及的钩子.Restify–OAuth2同时依赖内建的`authorizationParser` 和 `bodyParser` 插件, 后者 的`mapParams`参数设为`false`. 简言之, 如下:
 
 ```js
 var restify = require("restify");
@@ -38,9 +36,7 @@ restifyOAuth2.ropc(server, options);
 
 ## 选项
 
-The options you pass to Restify–OAuth2 depend heavily on which of the two flows you are choosing. There are some
-options common to both flows, but the `options.hooks` hash will vary depending on the flow. Once you provide the
-appropriate hooks, you get an OAuth 2 implementation for free.
+传递给Restify–OAuth2的参数严重依赖你选择的两个流中的一个。一些选项在所有流中通用, 但是`options.hooks`哈希将取决于流变化. 一旦您提供相应的钩子, 你会免费得到一个OAuth 2实现.
 
 ### 客户端认证挂钩
 
